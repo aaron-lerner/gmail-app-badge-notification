@@ -16,22 +16,18 @@
 		return count;
 	}
 
-	function getAtomFeed() {
-		return new Promise((resolve) => {
-			const x = new XMLHttpRequest();
-			x.open('GET', 'https://mail.google.com/mail/feed/atom?_=' + new Date().getTime(), true);
-			x.setRequestHeader('Cache-Control', 'no-cache');
-			x.onreadystatechange = function () {
-				if (x.readyState == 4 && x.status == 200) {
-					resolve(x.responseXML);
-				}
-			};
-			x.send(null);
-		});
+	async function getDocumentFeed() {
+		return fetch(`https://mail.google.com/mail/feed/atom?_=${new Date().getTime()}`, {
+			headers: {
+				'Cache-Control': 'no-cache'
+			}
+		})
+		.then(response => response.text())
+		.then(text => new window.DOMParser().parseFromString(text, "text/xml"));
 	}
 
 	async function updateBadgeIcon() {
-		const feed = await getAtomFeed();
+		const feed = await getDocumentFeed();
 		const newUnreadCount = getUnreadCount(feed);
 		if (newUnreadCount < 0) {
 			return;
