@@ -1,8 +1,8 @@
 {
-  "name": "Gmail app badge notification",
+  "name": "Gmail App Unread Count",
   "version": "1.0.0",
   "manifest_version": 3,
-  "description": "Show badge notifications in the taskbar when using Gmail as an app",
+  "description": "Show unread email count as a badge notifications when using Gmail as a PWA",
   "homepage_url": "https://github.com/aaron-lerner/gmail-app-badge-notification",
   "icons": {
     "16": "icons/icon16.png",

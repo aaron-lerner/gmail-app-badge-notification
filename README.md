@@ -1,4 +1,4 @@
-# Gmail app badge notification
+# Gmail App Unread Count
 
 You can download this extension [here](https://chrome.google.com/webstore/detail/gmail-app-badge-notificat/fbaolhbfbmniffcokakochjjeccpcpkh).
 
@@ -9,3 +9,7 @@ You can download this extension [here](https://chrome.google.com/webstore/detail
 1. Install the extension.
 2. Add Gmail as an app. You can do so by following [this guide](https://support.google.com/chrome_webstore/answer/3060053?hl=en). **Make sure to select the option "Open as a window".**
 3. Open the newly installed app.
+
+## Extension Building
+
+From the root directory of this repo, run `zip -vr extension.zip src/ -x "*.git*" -x "*.DS_Store"`
